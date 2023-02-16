@@ -14,7 +14,7 @@ use OrgProject;
 
 BEGIN TRANSACTION
 	CREATE TABLE Estados(                                          --Criar tabela
-		IdEstado VARCHAR(2) NOT NULL PRIMARY KEY,                     --Criar Primary Keys Sem Identity
+		IdEstado VARCHAR(2) NOT NULL PRIMARY KEY,                  --Criar Primary Keys Sem Identity
 		Estado varchar(50) NOT NULL,                               --Coluna
 		EstadoAtivo BINARY NOT NULL,                               --Coluna
 		DataCriacao DATETIME NOT NULL,                             --Coluna
@@ -23,10 +23,10 @@ BEGIN TRANSACTION
 		UsuarioAlteracao VARCHAR(50) NOT NULL,                     --Coluna
 	)
 
-	CREATE TABLE DadosIniciaisCadastros(                                    --Criar tabela
+	CREATE TABLE DadosIniciaisCadastros(                           --Criar tabela
 		IdUsuario INT NOT NULL IDENTITY(1,1) PRIMARY KEY,          --Criar Primary Keys
-		NomeCompleto VARCHAR(1000) NOT NULL,                       --Coluna
-		Email VARCHAR(100) NULL,                                   --Coluna
+		NomeCompleto VARCHAR(100) NOT NULL,                        --Coluna
+		Email VARCHAR(100) NOT NULL,                               --Coluna
 		UsuarioAtivo BINARY NOT NULL,                              --Coluna
 		DataCriacao DATETIME NOT NULL,                             --Coluna
 		UsuarioCriacao VARCHAR(50) NOT NULL,                       --Coluna
@@ -45,9 +45,9 @@ BEGIN TRANSACTION
 		UsuarioAlteracao VARCHAR(50) NOT NULL,                     --Coluna
 	)
 
-	CREATE TABLE Cidades(                                           --Criar tabela
+	CREATE TABLE Cidades(                                          --Criar tabela
 		IdCidade INT NOT NULL PRIMARY KEY,                         --Criar Primary Keys Sem Identity
-		IdEstado  VARCHAR(2) NOT NULL            ,                     --Coluna de Relacionamento com Estado
+		IdEstado  VARCHAR(2) NOT NULL            ,                 --Coluna de Relacionamento com Estado
 		Cidade VARCHAR(50) NOT NULL,                               --Coluna
 		CidadeAtiva BINARY NOT NULL,                               --Coluna
 		DataCriacao DATETIME NOT NULL,                             --Coluna
@@ -68,7 +68,7 @@ BEGIN TRANSACTION
 		UsuarioAlteracao VARCHAR(50) NOT NULL,                     --Coluna
 		)
 
-	CREATE TABLE CadastrosCompleto(                                 --Criar tabela
+	CREATE TABLE CadastrosCompleto(                                --Criar tabela
 		IdCadastroCompleto INT NOT NULL IDENTITY(1,1) PRIMARY KEY, --Criar Primary Keys
 		IdUsuario INT NOT NULL,                                    --Coluna Relacao Com Dados Iniciais
 		IdCidade INT,                                              --Coluna Relacao Com Cidade
@@ -84,11 +84,11 @@ BEGIN TRANSACTION
 		UsuarioAlteracao VARCHAR(50) NOT NULL,                     --Coluna
 	)
 
-	CREATE TABLE Projetos(                                          --Criar tabela
+	CREATE TABLE Projetos(                                         --Criar tabela
 		IdProjeto INT NOT NULL IDENTITY(1,1) PRIMARY KEY,          --Criar Primary Keys
 		IdDono INT NOT NULL,                                       --Coluna Relacao Com Dados Iniciais
 		IdGestor INT NOT NULL,                                     --Coluna Relacao Com Dados Iniciais
-		Valor MONEY NOT NULL,                                        --Coluna
+		Valor MONEY NOT NULL,                                      --Coluna
 		NPS TINYINT,                                               --Coluna
 		DataConclusao DATE,                                        --Coluna
 		ProjetoAtivo BINARY NOT NULL,                              --Coluna
@@ -98,7 +98,7 @@ BEGIN TRANSACTION
 		UsuarioAlteracao VARCHAR(50) NOT NULL,                     --Coluna
 	)
 
-	CREATE TABLE ProjetosAcessor(                                   --Criar tabela
+	CREATE TABLE ProjetosAcessor(                                  --Criar tabela
 		IdProjetoAcessor INT NOT NULL IDENTITY(1,1) PRIMARY KEY,   --Criar Primary Keys
 		IdProjeto INT NOT NULL,                                    --Coluna Relacao Com Projeto
 		IdAcessor INT NOT NULL,                                    --Coluna Relacao Com Dados Iniciais
